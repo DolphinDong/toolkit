@@ -1,16 +1,29 @@
 package cron
 
-import "fmt"
+import (
+	thttp "github.com/DolphinDong/gotools/http"
+	"github.com/DolphinDong/toolkit/moni-agent/global"
+	"github.com/pkg/errors"
+	"log"
+)
 
 func getTaskFunc() (taskFunc map[string]func()) {
 	taskFunc = make(map[string]func())
-	taskFunc["test01"] = test01
-	taskFunc["test02"] = test02
+	taskFunc["ConnectServer"] = ConnectServer
 	return
 }
-func test01() {
-	fmt.Println("test01")
-}
-func test02() {
-	fmt.Println("test02")
+
+func ConnectServer() {
+	serverClient := thttp.Client{
+		BaseUrl: global.GlobalConfig.MoniServerHost,
+	}
+	header := map[string]string{
+		"Token": global.GlobalConfig.MoniServerToken,
+	}
+	response, err := serverClient.Get("/hello", nil, header)
+	if err != nil {
+		log.Printf("%+v", errors.WithStack(err))
+	}
+	log.Printf("server response: %+v", string(response))
+
 }

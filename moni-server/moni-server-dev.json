@@ -1,0 +1,32 @@
+{
+	"server_host": "0.0.0.0",
+	"server_port": 8083,
+	"token": "82cb9e11-49f4-4a95-e854-47140e5b891c",
+	"task_schedule":{
+		"test01":"* * * * * *",
+		"test02":"*/5 * * * * *"
+	},
+	"log": {
+		"log_level": "DEBUG",
+		"log_path": "logs"
+	},
+	"mysql": {
+		"mysql_host": "47.115.30.167",
+		"mysql_port": 3306,
+		"mysql_user": "root",
+		"mysql_password": "1mwm,B-SH",
+		"db_name": "moni_server",
+		"max_idle_conns": 10,
+		"max_open_conns": 100
+	},
+	"redis": {
+		"redis_host": "47.115.30.167",
+		"redis_port": 6379,
+		"redis_password": "123456",
+		"pool_max_idle": 5,
+		"pool_max_active": 100,
+		"redis_db": 8,
+		"connect_time_out": 8,
+		"idle_timeout": 100
+	}
+}
