@@ -3,7 +3,7 @@ module github.com/DolphinDong/toolkit/moni-server
 go 1.17
 
 require (
-	github.com/DolphinDong/gotools v0.0.2
+	github.com/DolphinDong/gotools v0.0.3
 	github.com/antonfisher/nested-logrus-formatter v1.3.1
 	github.com/gin-gonic/gin v1.8.1
 	github.com/gomodule/redigo v2.0.0+incompatible

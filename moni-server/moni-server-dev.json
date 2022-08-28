@@ -26,7 +26,7 @@
 		"pool_max_idle": 5,
 		"pool_max_active": 20,
 		"redis_db": 8,
-		"connect_time_out": 8,
+		"connect_time_out": 10,
 		"idle_timeout": 100
 	}
 }
