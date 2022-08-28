@@ -12,6 +12,9 @@ func getTaskFunc() (taskFunc map[string]func()) {
 	taskFunc["ConnectServer1"] = ConnectServer
 	taskFunc["ConnectServer2"] = ConnectServer
 	taskFunc["ConnectServer3"] = ConnectServer
+	taskFunc["ConnectServer4"] = ConnectServer
+	taskFunc["ConnectServer5"] = ConnectServer
+	taskFunc["ConnectServer6"] = ConnectServer
 	return
 }
 
