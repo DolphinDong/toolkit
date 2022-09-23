@@ -33,3 +33,9 @@ type LayuiTable struct {
 	Count int64       `json:"count"`
 	Data  interface{} `json:"data"`
 }
+
+type AlarmIdentifier struct {
+	ServerHost   string `json:"server_host"`
+	ServerPort   int    `json:"server_port"`
+	AlarmMessage string `json:"alarm_mssage"`
+}

@@ -1,13 +1,15 @@
 package config
 
 type Server struct {
-	TaskSchedule map[string]string `json:"task_schedule" validate:"required"`
-	ServerHost   string            `json:"server_host" validate:"required,ip4_addr"`
-	ServerPort   int               `json:"server_port" validate:"required,gt=0"`
-	Log          Log               `json:"log" validate:"required"`
-	Mysql        Mysql             `json:"mysql" validate:"required"`
-	Redis        Redis             `json:"redis" validate:"required"`
-	Token        string            `json:"token" validate:"required"`
+	TaskSchedule  map[string]string `json:"task_schedule" validate:"required"`
+	ServerHost    string            `json:"server_host" validate:"required,ip4_addr"`
+	ServerPort    int               `json:"server_port" validate:"required,gt=0"`
+	Log           Log               `json:"log" validate:"required"`
+	Mysql         Mysql             `json:"mysql" validate:"required"`
+	Redis         Redis             `json:"redis" validate:"required"`
+	Token         string            `json:"token" validate:"required"`
+	RobotKey      string            `json:"robot_key" validate:"required"`
+	WechatBaseUrl string            `json:"wechat_base_url" validate:"required"`
 }
 
 // Mysql配置
