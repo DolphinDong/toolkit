@@ -41,7 +41,7 @@ func PortCheck() {
 	for _, hostPort := range hostPorts {
 		go func(hp *models.HostPort) {
 			addr := fmt.Sprintf("%v:%v", hp.Host, hp.Port)
-			conn, err := net.DialTimeout("tcp", addr, time.Second*10)
+			conn, err := net.DialTimeout("tcp", addr, time.Second*15)
 			if err != nil {
 				global.GlobalCronLoger.Errorf("%v connect failed", addr)
 				message := fmt.Sprintf(messageTmp, hp.Name)
@@ -73,7 +73,11 @@ func PortCheck() {
 					}
 					msg.Text.MentionedList = AlarmRecipient
 					msg.Text.Content = fmt.Sprintf(AlarmTemplage, hp.Host, hp.Port, message, time.Now().Format("2006-01-02 15:04:05"))
-					_ = wechat.SendRobotMessage(global.GlobalConfig.RobotKey, global.GlobalConfig.WechatBaseUrl, msg)
+					err = wechat.SendRobotMessage(global.GlobalConfig.RobotKey, global.GlobalConfig.WechatBaseUrl, msg)
+					if err != nil {
+						global.GlobalCronLoger.Errorf("send robot message failed:%+v", errors.WithStack(err))
+						return
+					}
 				}
 				return
 			}
