@@ -1,6 +1,6 @@
 module github.com/DolphinDong/toolkit/moni-server
 
-go 1.17
+go 1.16
 
 require (
 	github.com/DolphinDong/gotools v0.0.4
